@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace MercurySeries\Bundle\InertiaMaker\Service;
 
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Filesystem\Filesystem;

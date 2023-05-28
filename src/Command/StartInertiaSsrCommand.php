@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Command;
+namespace MercurySeries\Bundle\InertiaMaker\Command;
 
 use App\Service\BundleDetector;
 use Symfony\Component\Console\Attribute\AsCommand;

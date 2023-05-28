@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace MercurySeries\Bundle\InertiaMaker\Controller;
 
 use Rompetomp\InertiaBundle\Service\InertiaInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
