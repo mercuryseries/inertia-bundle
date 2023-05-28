@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Mercuryseries\\InertiaMakerBundle\\": "src/"
+            "MercurySeries\\Bundle\\InertiaMaker\\": "src/"
         }
     },
     "authors": [
