@@ -1,0 +1,4 @@
+rompetomp_inertia:
+    ssr:
+        enabled: '%app.inertia.ssr.enabled%'
+        url: '%app.inertia.ssr.url%'
