@@ -17,7 +17,7 @@ final class MercurySeriesInertiaMakerExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        dd($config);
+        // dd($config);
 
         // $rootNamespace = trim($config['root_namespace'], '\\');
 
