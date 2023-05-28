@@ -1,19 +1,4 @@
-
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
-###< symfony/framework-bundle ###
-
-###> symfony/webpack-encore-bundle ###
-/node_modules/
-/public/build/
-npm-debug.log
-yarn-error.log
-###< symfony/webpack-encore-bundle ###
-
+we need a recipe: put it like the following: https://github.com/symfony/recipes/blob/flex/main/symfony.webpack-encore-bundle.2.0.json
+###> mercuryseries/inertia-maker-bundle ###
 /public/build-ssr/
+###< mercuryseries/inertia-maker-bundle ###
