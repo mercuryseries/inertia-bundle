@@ -1,8 +1,41 @@
-# README
+Installation
+============
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Make sure Composer is installed globally, as explained in the
+[installation chapter](https://getcomposer.org/doc/00-intro.md)
+of the Composer documentation.
+
+Applications that use Symfony Flex
+----------------------------------
+
+Open a command console, enter your project directory and execute:
+
+```console
+$ composer require mercuryseries/inertia-maker-bundle
+```
+
+Applications that don't use Symfony Flex
+----------------------------------------
+
+### Step 1: Download the Bundle
+
+Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:
+
+```console
+$ composer require mercuryseries/inertia-maker-bundle
+```
+
+### Step 2: Enable the Bundle
+
+Then, enable the bundle by adding it to the list of registered bundles
+in the `config/bundles.php` file of your project:
+
+```php
+// config/bundles.php
+
+return [
+    // ...
+    MercurySeries\Bundle\InertiaMakerBundle\MercurySeriesInertiaMakerBundle::class => ['all' => true],
+];
+```
