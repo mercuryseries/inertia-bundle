@@ -9,7 +9,7 @@
     </parameters>
 
     <services>
-        <!-- <service id="mercuryseries_inertia_maker.generator" class="MercurySeries\Bundle\InertiaMaker\Generator" public="false" /> -->
-        <!-- <service id="MercurySeries\Bundle\InertiaMaker\Generator" alias="mercuryseries_inertia_maker.generator" public="false" /> -->
+        <!-- <service id="mercuryseries_inertia_maker.generator" class="MercurySeries\Bundle\InertiaMakerBundle\Generator" public="false" /> -->
+        <!-- <service id="MercurySeries\Bundle\InertiaMakerBundle\Generator" alias="mercuryseries_inertia_maker.generator" public="false" /> -->
     </services>
 </container>
