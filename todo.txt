@@ -1,3 +1,5 @@
+Make it work with Vite too: https://github.com/symfony/maker-bundle/blob/main/src/Maker/MakeController.php
+
 controllers:
     resource:
         path: ../src/Controller/
