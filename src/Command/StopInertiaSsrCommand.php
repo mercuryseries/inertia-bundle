@@ -2,22 +2,22 @@
 
 namespace MercurySeries\Bundle\InertiaMakerBundle\Command;
 
-use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-#[AsCommand(
-    name: 'inertia:stop-ssr',
-    description: 'Stop the Inertia SSR server',
-)]
-class StopInertiaSsrCommand extends Command
+final class StopInertiaSsrCommand extends Command
 {
     public function __construct(
         private readonly string $ssrUrl
     ) {
         parent::__construct();
+    }
+
+    protected function configure(): void
+    {
+        $this->setDescription('Stop the Inertia SSR server');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
