@@ -1,6 +1,6 @@
 {
     "name": "mercuryseries/inertia-maker-bundle",
-    "description": "The Symfony adapter + boilerplate for Inertia.js.",
+    "description": "Enhanced Symfony adapter for Inertia.js.",
     "type": "symfony-bundle",
     "license": "MIT",
     "autoload": {

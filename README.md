@@ -1,3 +1,8 @@
+# Enhanced Symfony adapter for Inertia.js
+=========================================
+
+This is an enhanced Inertia.js server-side adapter based on [rompetomp/inertia-bundle](https://github.com/rompetomp/inertia-bundle).
+
 Installation
 ============
 
