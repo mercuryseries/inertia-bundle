@@ -1,3 +1,6 @@
+Symfony Recipes Docs:
+- https://github.com/symfony/recipes/blob/main/README.rst
+
 StartInertiaSsrCommand.php
     - %app.inertia.ssr.enabled%
     - %app.inertia.ssr.bundle%
