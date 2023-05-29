@@ -11,13 +11,15 @@ final class MercurySeriesInertiaMakerExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new XmlFileLoader($container, new FileLocator(\dirname(__DIR__).'/Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(\dirname(__DIR__).'/../config'));
         $loader->load('services.xml');
 
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        // dd($config);
+        $container->setParameter('mercuryseries_inertia_maker.ssr.enabled', $config['ssr']['enabled']);
+        $container->setParameter('mercuryseries_inertia_maker.ssr.bundle', $config['ssr']['bundle']);
+        $container->setParameter('mercuryseries_inertia_maker.ssr.url', $config['ssr']['url']);
 
         // $rootNamespace = trim($config['root_namespace'], '\\');
 
