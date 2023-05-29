@@ -4,6 +4,7 @@ namespace MercurySeries\Bundle\InertiaMakerBundle\Service;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use MercurySeries\Bundle\InertiaMakerBundle\Contract\RoutingHistoryInterface;
 
 final class RoutingHistory implements RoutingHistoryInterface
 {

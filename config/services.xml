@@ -47,7 +47,7 @@
             <argument>%mercuryseries_inertia_maker.routing_history.previous_url_session_key%</argument>
         </service>
 
-        <service id="MercurySeries\Bundle\InertiaMakerBundle\Service\RoutingHistoryInterface"
+        <service id="MercurySeries\Bundle\InertiaMakerBundle\Contract\RoutingHistoryInterface"
             alias="mercuryseries_inertia_maker.service.routing_history"
         />
 
