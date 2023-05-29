@@ -18,13 +18,18 @@ final class MercurySeriesInertiaMakerExtension extends Extension implements Prep
         foreach (array_reverse($configs) as $config) {
             // check if ssr is set in the "mercuryseries_inertia_maker" configuration
             if (isset($config['ssr'])) {
-                // prepend the rompetomp_inertia settings with the ssr
+                // prepend the rompetomp_inertia settings with the ssr config
                 $container->prependExtensionConfig('rompetomp_inertia', [
                     'ssr' => [
                         'enabled' => $config['ssr']['enabled'],
                         'url' => $config['ssr']['url']
                     ]
                 ]);
+            }
+
+            if (isset($config['csrf_cookie'])) {
+                // prepend the dneustadt_csrf_cookie settings with the csrf_cookie config
+                $container->prependExtensionConfig('dneustadt_csrf_cookie', $config['csrf_cookie']);
             }
         }
     }

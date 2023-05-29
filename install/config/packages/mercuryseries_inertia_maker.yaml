@@ -16,3 +16,15 @@ mercuryseries_inertia_maker:
         enabled: false
         url: 'http://127.0.0.1:13714'
         bundle: '%kernel.project_dir%/public/build-ssr/ssr.mjs'
+
+    # |--------------------------------------------------------------------------
+    # | CSRF Protection
+    # |--------------------------------------------------------------------------
+    # |
+    # | To learn more, please visit https://inertiajs.com/csrf-protection
+    csrf_cookie:
+        expire: 0
+        path: /
+        domain: ~
+        secure: true
+        sameSite: lax
