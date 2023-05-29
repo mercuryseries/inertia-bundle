@@ -19,20 +19,6 @@ class InertiaSubscriber implements EventSubscriberInterface
             'errors',
             fn () => $event->getRequest()->getSession()->remove('errors')
         );
-
-        $this->inertia->share(
-            'flash',
-            [
-                'success' => fn () => $event->getRequest()
-                    ->getSession()
-                    ->getFlashBag()
-                    ->get('success')[0] ?? '',
-                'error' => fn () => $event->getRequest()
-                    ->getSession()
-                    ->getFlashBag()
-                    ->get('error')[0] ?? '',
-            ],
-        );
     }
 
     public static function getSubscribedEvents(): array
