@@ -6,6 +6,12 @@ This is an enhanced Inertia.js server-side adapter based on [rompetomp/inertia-b
 Installation
 ============
 
+First, make sure you have the twig, encore and serializer recipe:
+
+```console
+$ composer require twig encore serializer
+```
+
 Make sure Composer is installed globally, as explained in the
 [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
