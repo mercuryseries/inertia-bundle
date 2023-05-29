@@ -7,13 +7,15 @@ use Symfony\Component\Filesystem\Path;
 
 final class BundleDetector
 {
-    public function __construct(
-        private readonly Filesystem $filesystem,
+    private $filesystem;
+    private $basePath;
+    private $configuredBundle;
 
-        private readonly string $basePath,
-
-        private readonly ?string $configuredBundle = null
-    ) {
+    public function __construct(Filesystem $filesystem, string $basePath, ?string $configuredBundle = null)
+    {
+        $this->filesystem = $filesystem;
+        $this->basePath = $basePath;
+        $this->configuredBundle = $configuredBundle;
     }
 
     public function detect(): ?string

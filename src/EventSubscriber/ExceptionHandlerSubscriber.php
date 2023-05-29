@@ -11,9 +11,11 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class ExceptionHandlerSubscriber implements EventSubscriberInterface
 {
-    public function __construct(
-        private readonly RoutingHistory $routingHistory,
-    ) {
+    private $routingHistory;
+    
+    public function __construct(RoutingHistory $routingHistory)
+    {
+        $this->routingHistory = $routingHistory;
     }
 
     public function onKernelException(ExceptionEvent $event): void

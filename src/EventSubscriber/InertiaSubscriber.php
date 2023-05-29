@@ -9,8 +9,11 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class InertiaSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private readonly InertiaInterface $inertia)
+    private $inertia;
+    
+    public function __construct(InertiaInterface $routingHistory)
     {
+        $this->inertia = $inertia;
     }
 
     public function onKernelController(ControllerEvent $event): void

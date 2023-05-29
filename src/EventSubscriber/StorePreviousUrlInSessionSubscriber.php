@@ -10,9 +10,9 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class StorePreviousUrlInSessionSubscriber implements EventSubscriberInterface
 {
-    public function __construct(
-        private readonly string $previousUrlSessionKey,
-    ) {
+    public function __construct(string $previousUrlSessionKey)
+    {
+        $this->previousUrlSessionKey = $previousUrlSessionKey;
     }
 
     public function onKernelRequest(RequestEvent $event): void

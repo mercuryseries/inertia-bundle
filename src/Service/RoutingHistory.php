@@ -8,14 +8,13 @@ use MercurySeries\Bundle\InertiaBundle\Contract\RoutingHistoryInterface;
 
 final class RoutingHistory implements RoutingHistoryInterface
 {
-    private readonly Request $request;
+    private $request;
+    private $previousUrlSessionKey;
 
-    public function __construct(
-        readonly RequestStack $requestStack,
-
-        private readonly string $previousUrlSessionKey
-    ) {
+    public function __construct(RequestStack $requestStack, string $previousUrlSessionKey)
+    {
         $this->request = $requestStack->getCurrentRequest();
+        $this->previousUrlSessionKey = $previousUrlSessionKey;
     }
 
     /**

@@ -13,14 +13,16 @@ use Symfony\Component\Process\Process;
 
 final class StartInertiaSsrCommand extends Command
 {
-    public function __construct(
-        private readonly BundleDetector $bundleDetector,
+    private $bundleDetector;
+    private $ssrEnabled;
+    private $configuredBundle;
 
-        private readonly bool $ssrEnabled,
-
-        private readonly ?string $configuredBundle = null
-    ) {
+    public function __construct(BundleDetector $bundleDetector, bool $ssrEnabled, ?string $configuredBundle = null)
+    {
         parent::__construct();
+        $this->bundleDetector = $bundleDetector;
+        $this->ssrEnabled = $ssrEnabled;
+        $this->configuredBundle = $configuredBundle;
     }
 
     protected function configure(): void

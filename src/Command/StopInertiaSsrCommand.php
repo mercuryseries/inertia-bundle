@@ -9,10 +9,12 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class StopInertiaSsrCommand extends Command
 {
-    public function __construct(
-        private readonly string $ssrUrl
-    ) {
+    private $ssrUrl;
+
+    public function __construct(string $ssrUrl)
+    {
         parent::__construct();
+        $this->ssrUrl = $ssrUrl;
     }
 
     protected function configure(): void

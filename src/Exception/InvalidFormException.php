@@ -11,8 +11,10 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
  */
 class InvalidFormException extends HttpException
 {
+    private $form;
+
     public function __construct(
-        private Form $form,
+        Form $form,
         string $message = '',
         \Throwable $previous = null,
         array $headers = [],
@@ -21,6 +23,7 @@ class InvalidFormException extends HttpException
         parent::__construct(
             Response::HTTP_UNPROCESSABLE_ENTITY, $message, $previous, $headers, $code
         );
+        $this->form = $form;
     }
 
     public function getForm(): Form
