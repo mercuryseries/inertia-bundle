@@ -7,7 +7,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 #[AsCommand(
     name: 'inertia:stop-ssr',
@@ -16,7 +15,6 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 class StopInertiaSsrCommand extends Command
 {
     public function __construct(
-        #[Autowire('%mercuryseries_inertia_maker.ssr.url%')]
         private readonly string $ssrUrl
     ) {
         parent::__construct();

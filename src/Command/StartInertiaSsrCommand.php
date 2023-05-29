@@ -2,7 +2,7 @@
 
 namespace MercurySeries\Bundle\InertiaMakerBundle\Command;
 
-use App\Service\BundleDetector;
+use MercurySeries\Bundle\InertiaMakerBundle\Service\BundleDetector;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -10,7 +10,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -22,10 +21,8 @@ class StartInertiaSsrCommand extends Command
     public function __construct(
         private readonly BundleDetector $bundleDetector,
 
-        #[Autowire('%mercuryseries_inertia_maker.ssr.enabled%')]
         private readonly bool $ssrEnabled,
 
-        #[Autowire('%mercuryseries_inertia_maker.ssr.bundle%')]
         private readonly string $configuredBundle
     ) {
         parent::__construct();
@@ -56,7 +53,7 @@ class StartInertiaSsrCommand extends Command
             $io->warning('Using a default bundle instead: "'.$bundle.'"');
         }
 
-        $command = $this->getApplication()->find('app:stop-inertia-ssr');
+        $command = $this->getApplication()->find('inertia:stop-ssr');
         $command->run(new ArrayInput([]), new NullOutput());
 
         $process = new Process(['node', $bundle]);

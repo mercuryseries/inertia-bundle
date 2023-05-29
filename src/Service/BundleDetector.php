@@ -2,7 +2,6 @@
 
 namespace MercurySeries\Bundle\InertiaMakerBundle\Service;
 
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 
@@ -11,10 +10,8 @@ class BundleDetector
     public function __construct(
         private readonly Filesystem $filesystem,
 
-        #[Autowire('%mercuryseries_inertia_maker.ssr.bundle%')]
         private readonly string $configuredBundle,
 
-        #[Autowire('%kernel.project_dir%')]
         private readonly string $basePath
     ) {
     }
