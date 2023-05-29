@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker\Exception;
+namespace MercurySeries\Bundle\InertiaMakerBundle\Exception;
 
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Response;

@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker\EventSubscriber;
+namespace MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber;
 
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class StorePreviousUrlInSessionSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        #[Autowire('%app.previous_url_session_key%')]
+        #[Autowire('%mercuryseries_inertia_maker.previous_url_session_key%')]
         private readonly string $previousUrlSessionKey,
     ) {
     }

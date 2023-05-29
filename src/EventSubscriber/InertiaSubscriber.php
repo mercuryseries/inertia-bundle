@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker\EventSubscriber;
+namespace MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber;
 
 use Rompetomp\InertiaBundle\Service\InertiaInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

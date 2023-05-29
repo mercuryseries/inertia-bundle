@@ -1,8 +1,8 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker;
+namespace MercurySeries\Bundle\InertiaMakerBundle;
 
-use MercurySeries\Bundle\InertiaMaker\DependencyInjection\MercurySeriesInertiaMakerExtension;
+use MercurySeries\Bundle\InertiaMakerBundle\DependencyInjection\MercurySeriesInertiaMakerExtension;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

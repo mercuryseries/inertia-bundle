@@ -4,6 +4,10 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services
         https://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="mercuryseries_inertia_maker.previous_url_session_key">_mercuryseries_inertia_maker_previous_url</parameter>
+    </parameters>
+
     <services>
         <!-- <service id="mercuryseries_inertia_maker.generator" class="MercurySeries\Bundle\InertiaMaker\Generator" public="false" /> -->
         <!-- <service id="MercurySeries\Bundle\InertiaMaker\Generator" alias="mercuryseries_inertia_maker.generator" public="false" /> -->

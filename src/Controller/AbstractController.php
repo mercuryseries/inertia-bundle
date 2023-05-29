@@ -1,8 +1,8 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker\Controller;
+namespace MercurySeries\Bundle\InertiaMakerBundle\Controller;
 
-use MercurySeries\Bundle\InertiaMaker\EventSubscriber\Form\CheckFormValidationStateSubscriber;
+use MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber;
 use Rompetomp\InertiaBundle\Service\InertiaInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as SymfonyAbstractController;
 use Symfony\Component\Form\FormInterface;

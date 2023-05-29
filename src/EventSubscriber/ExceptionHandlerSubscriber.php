@@ -1,9 +1,9 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker\EventSubscriber;
+namespace MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber;
 
-use MercurySeries\Bundle\InertiaMaker\Exception\InvalidFormException;
-use MercurySeries\Bundle\InertiaMaker\Service\RoutingHistory;
+use MercurySeries\Bundle\InertiaMakerBundle\Exception\InvalidFormException;
+use MercurySeries\Bundle\InertiaMakerBundle\Service\RoutingHistory;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;

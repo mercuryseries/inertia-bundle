@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker\Command;
+namespace MercurySeries\Bundle\InertiaMakerBundle\Command;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -10,7 +10,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 #[AsCommand(
-    name: 'app:stop-inertia-ssr',
+    name: 'inertia:stop-ssr',
     description: 'Stop the Inertia SSR server',
 )]
 class StopInertiaSsrCommand extends Command

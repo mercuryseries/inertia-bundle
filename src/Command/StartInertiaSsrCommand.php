@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMaker\Command;
+namespace MercurySeries\Bundle\InertiaMakerBundle\Command;
 
 use App\Service\BundleDetector;
 use Symfony\Component\Console\Attribute\AsCommand;
@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
-    name: 'app:start-inertia-ssr',
+    name: 'inertia:start-ssr',
     description: 'Start the Inertia SSR server',
 )]
 class StartInertiaSsrCommand extends Command
