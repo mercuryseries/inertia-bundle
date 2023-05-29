@@ -1,23 +1,22 @@
 https://github.com/symfony/recipes-contrib/actions/runs/1264884891/workflow
 
 git ls-tree HEAD */*/* | php ~/Code/BookApps/inertia-symfony-react-apps/recipes-checker/run generate:flex-endpoint --contrib mercuryseries/inertia-maker-bundle-recipe main main .
-
 "extra": {
-        "symfony": {
-            "endpoint": [
-               "https://api.github.com/repos/mercuryseries/inertia-maker-bundle-recipe/contents/index.json",
-               "flex://defaults"
-            ],
-            "allow-contrib": true,
-            "require": "6.2.*"
-        }
-    },
-    "repositories": [
+    "symfony": {
+        "endpoint": [
+           "https://api.github.com/repos/mercuryseries/inertia-maker-bundle-recipe/contents/index.json",
+           "flex://defaults"
+        ],
+        "allow-contrib": true,
+        "require": "6.2.*"
+    }
+},
+"repositories": [
     {
       "type": "path",
       "url": "../InertiaMakerBundle"
     }
-  ]
+]
 
 Make it work with Vite too: https://github.com/symfony/maker-bundle/blob/main/src/Maker/MakeController.php
 
