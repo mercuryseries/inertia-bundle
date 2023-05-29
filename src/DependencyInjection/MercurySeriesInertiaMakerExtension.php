@@ -25,6 +25,10 @@ final class MercurySeriesInertiaMakerExtension extends Extension
 
         // $inertiaMakeCommandDefinition = $container->getDefinition('mercuryseries_inertia_maker.generator');
         // $inertiaMakeCommandDefinition->replaceArgument(1, $rootNamespace);
+
+        // $definition = new Definition(ExceptionListener::class);
+        // $definition->addTag('kernel.event_listener', ['event' => 'kernel.exception']);
+        // $container->setDefinition(ExceptionListener::class, $definition);
     }
 
     public function getAlias(): string
