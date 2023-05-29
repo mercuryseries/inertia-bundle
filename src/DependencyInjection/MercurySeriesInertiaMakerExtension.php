@@ -4,10 +4,11 @@ namespace MercurySeries\Bundle\InertiaMakerBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class MercurySeriesInertiaMakerExtension extends Extension
+final class MercurySeriesInertiaMakerExtension extends Extension implements PrependExtensionInterface
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
@@ -26,9 +27,15 @@ final class MercurySeriesInertiaMakerExtension extends Extension
         // $inertiaMakeCommandDefinition = $container->getDefinition('mercuryseries_inertia_maker.generator');
         // $inertiaMakeCommandDefinition->replaceArgument(1, $rootNamespace);
 
+        // https://github.com/KnpLabs/KnpPaginatorBundle/blob/master/src/DependencyInjection/KnpPaginatorExtension.php
         // $definition = new Definition(ExceptionListener::class);
         // $definition->addTag('kernel.event_listener', ['event' => 'kernel.exception']);
         // $container->setDefinition(ExceptionListener::class, $definition);
+    }
+
+    public function prepend(ContainerBuilder $container)
+    {
+        // ...
     }
 
     public function getAlias(): string

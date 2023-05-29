@@ -1,2 +1,10 @@
 Symfony Recipes Docs:
-- https://github.com/symfony/recipes/blob/main/README.rst
+    - https://github.com/symfony/recipes/blob/main/README.rst
+    - I can use https://github.com/symfony/recipes/blob/main/README.rst#container-configurator:
+        parameters:
+            env(APP_INERTIA_SSR_ENABLED): false
+            env(APP_INERTIA_SSR_URL): 'http://127.0.0.1:13714/render'
+
+            app.inertia.ssr.enabled: '%env(bool:APP_INERTIA_SSR_ENABLED)%'
+            app.inertia.ssr.url: '%env(string:APP_INERTIA_SSR_URL)%'
+            app.inertia.ssr.bundle: '%kernel.project_dir%/public/build-ssr/ssr.js'
