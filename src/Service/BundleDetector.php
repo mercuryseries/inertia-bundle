@@ -5,7 +5,7 @@ namespace MercurySeries\Bundle\InertiaMakerBundle\Service;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 
-class BundleDetector
+final class BundleDetector
 {
     public function __construct(
         private readonly Filesystem $filesystem,
