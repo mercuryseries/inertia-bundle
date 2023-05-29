@@ -12,7 +12,7 @@ final class BundleDetector
 
         private readonly string $basePath,
 
-        private readonly ?string $configuredBundle = null,
+        private readonly ?string $configuredBundle = null
     ) {
     }
 
