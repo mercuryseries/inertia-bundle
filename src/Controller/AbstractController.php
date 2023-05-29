@@ -4,11 +4,11 @@ namespace MercurySeries\Bundle\InertiaMakerBundle\Controller;
 
 use MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber;
 use Rompetomp\InertiaBundle\Service\InertiaInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as SymfonyAbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as FrameworkBundleAbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-abstract class AbstractController extends SymfonyAbstractController
+abstract class AbstractController extends FrameworkBundleAbstractController
 {
     /**
      * Creates and returns an unnamed form instance from the type of the form.
