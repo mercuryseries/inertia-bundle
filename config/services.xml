@@ -18,6 +18,13 @@
             <tag name="kernel.event_subscriber" />
         </service>
 
+        <service id="mercuryseries_inertia_maker.store_previous_url_in_session_subscriber"
+            class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\StorePreviousUrlInSessionSubscriber"
+        >
+            <argument>%mercuryseries_inertia_maker.routing_history.previous_url_session_key%</argument>
+            <tag name="kernel.event_subscriber" />
+        </service>
+
         <service id="mercuryseries_inertia_maker.exception_handler_subscriber"
             class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\ExceptionHandlerSubscriber"
         >
