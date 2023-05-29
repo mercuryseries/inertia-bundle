@@ -9,20 +9,27 @@
     </parameters>
 
     <services>
-        <service id="mercuryseries_inertia_maker.bundle_detector" class="MercurySeries\Bundle\InertiaMakerBundle\Service\BundleDetector">
+        <defaults public="false" />
+
+        <service id="mercuryseries_inertia_maker.service.routing_history" class="MercurySeries\Bundle\InertiaMakerBundle\Service\RoutingHistory">
+            <argument type="service" id="request_stack" />
+            <argument>%mercuryseries_inertia_maker.routing_history.previous_url_session_key%</argument>
+        </service>
+
+        <service id="mercuryseries_inertia_maker.service.bundle_detector" class="MercurySeries\Bundle\InertiaMakerBundle\Service\BundleDetector">
             <argument type="service" id="filesystem" />
             <argument>%mercuryseries_inertia_maker.ssr.bundle%</argument>
             <argument>%kernel.project_dir%</argument>
         </service>
 
-        <service id="mercuryseries_inertia_maker.command.start_ssr" class="MercurySeries\Bundle\InertiaMakerBundle\Command\StartInertiaSsrCommand" public="true">
-            <argument type="service" id="mercuryseries_inertia_maker.bundle_detector" />
+        <service id="mercuryseries_inertia_maker.command.start_ssr" class="MercurySeries\Bundle\InertiaMakerBundle\Command\StartInertiaSsrCommand">
+            <argument type="service" id="mercuryseries_inertia_maker.service.bundle_detector" />
             <argument>%mercuryseries_inertia_maker.ssr.enabled%</argument>
             <argument>%mercuryseries_inertia_maker.ssr.bundle%</argument>
             <tag name="console.command" command="inertia:start-ssr" />
         </service>
 
-        <service id="mercuryseries_inertia_maker.command.stop_ssr" class="MercurySeries\Bundle\InertiaMakerBundle\Command\StopInertiaSsrCommand" public="true">
+        <service id="mercuryseries_inertia_maker.command.stop_ssr" class="MercurySeries\Bundle\InertiaMakerBundle\Command\StopInertiaSsrCommand">
             <argument>%mercuryseries_inertia_maker.ssr.url%</argument>
             <tag name="console.command" command="inertia:stop-ssr" />
         </service>

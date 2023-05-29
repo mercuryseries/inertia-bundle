@@ -2,7 +2,6 @@
 
 namespace MercurySeries\Bundle\InertiaMakerBundle\Service;
 
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -13,7 +12,6 @@ final class RoutingHistory
     public function __construct(
         readonly RequestStack $requestStack,
 
-        #[Autowire('%mercuryseries_inertia_maker.routing_history.previous_url_session_key%')]
         private readonly string $previousUrlSessionKey
     ) {
         $this->request = $requestStack->getCurrentRequest();
