@@ -1,7 +1,3 @@
-Symfony Recipes Docs:
-    - https://github.com/symfony/recipes/blob/main/README.rst
-
-
 controllers:
     resource:
         path: ../src/Controller/
