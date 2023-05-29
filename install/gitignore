@@ -1,7 +1,0 @@
-https://github.com/symfony/recipes/blob/flex/main/symfony.webpack-encore-bundle.2.0.json
-"add-lines": [...
-
-we need a recipe: put it like the following: https://github.com/symfony/recipes/blob/flex/main/symfony.webpack-encore-bundle.2.0.json
-###> mercuryseries/inertia-maker-bundle ###
-/public/build-ssr/
-###< mercuryseries/inertia-maker-bundle ###
