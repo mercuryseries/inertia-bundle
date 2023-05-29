@@ -8,3 +8,7 @@ Symfony Recipes Docs:
             app.inertia.ssr.enabled: '%env(bool:APP_INERTIA_SSR_ENABLED)%'
             app.inertia.ssr.url: '%env(string:APP_INERTIA_SSR_URL)%'
             app.inertia.ssr.bundle: '%kernel.project_dir%/public/build-ssr/ssr.js'
+
+RoutingHistoryInterface:
+    - https://github.com/rompetomp/inertia-bundle/blob/6d1d0b9f10ce4624b0c7e1a9670dc5e039e78384/Service/InertiaInterface.php
+    - Rompetomp\InertiaBundle\Service\InertiaInterface: '@rompetomp_inertia.inertia'

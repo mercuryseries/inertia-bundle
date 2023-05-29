@@ -11,22 +11,25 @@
     <services>
         <defaults public="false" />
 
-            <!-- public="true" -->
-            <!-- abstract="true" -->
-        <service id="MercurySeries\Bundle\InertiaMakerBundle\Controller\AbstractController"
-            class="MercurySeries\Bundle\InertiaMakerBundle\Controller\AbstractController"
-        >
-             <call method="setContainer">
-                <argument>@Psr\Container\ContainerInterface</argument>
-            </call>
-            <tag name="container.service_subscriber"/>
-        </service>
-
-        <service id="mercuryseries_inertia_maker.event_subscriber.check_form_validation_state_subscriber"
+        <service id="mercuryseries_inertia_maker.check_form_validation_state_subscriber"
             class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber"
         >
-            <tag name="kernel.event_subscriber"/>
+            <tag name="kernel.event_subscriber" />
         </service>
+
+        <service id="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber"
+            alias="mercuryseries_inertia_maker.check_form_validation_state_subscriber"
+        />
+
+        <!-- <service id="MercurySeries\Bundle\InertiaMakerBundle\Controller\AbstractController"
+            class="MercurySeries\Bundle\InertiaMakerBundle\Controller\AbstractController"
+        >
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+            <tag name="container.service_subscriber" />
+            <tag name="controller.service_arguments" />
+        </service> -->
 
         <service id="mercuryseries_inertia_maker.service.routing_history" class="MercurySeries\Bundle\InertiaMakerBundle\Service\RoutingHistory">
             <argument type="service" id="request_stack" />

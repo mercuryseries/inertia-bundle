@@ -9,7 +9,6 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractController extends FrameworkBundleAbstractController
-// abstract class AbstractController extends FrameworkBundleAbstractController
 {
     /**
      * Creates and returns an unnamed form instance from the type of the form.
@@ -19,7 +18,7 @@ abstract class AbstractController extends FrameworkBundleAbstractController
         return $this->container->get('form.factory')
             ->createNamedBuilder('', $type, $data, $options)
             ->addEventSubscriber(
-                $this->container->get('mercuryseries_inertia_maker.event_subscriber.check_form_validation_state_subscriber')
+                $this->container->get(CheckFormValidationStateSubscriber::class)
             )
             ->getForm()
         ;
@@ -30,7 +29,7 @@ abstract class AbstractController extends FrameworkBundleAbstractController
      */
     protected function inertiaRender($component, $props = [], $viewData = [], $context = []): Response
     {
-        return $this->container->get('rompetomp_inertia.inertia')
+        return $this->container->get(InertiaInterface::class)
             ->render($component, $props, $viewData, $context)
         ;
     }
@@ -38,8 +37,8 @@ abstract class AbstractController extends FrameworkBundleAbstractController
     public static function getSubscribedServices(): array
     {
         return array_merge(parent::getSubscribedServices(), [
-            // 'rompetomp_inertia.inertia' => InertiaInterface::class,
-            // 'mercuryseries_inertia_maker.event_subscriber.check_form_validation_state_subscriber' =>  CheckFormValidationStateSubscriber::class,
+            InertiaInterface::class,
+            CheckFormValidationStateSubscriber::class,
         ]);
     }
 }
