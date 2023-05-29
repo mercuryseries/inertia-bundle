@@ -11,6 +11,13 @@
     <services>
         <defaults public="false" />
 
+        <service id="mercuryseries_inertia_maker.inertia_subscriber"
+            class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\InertiaSubscriber"
+        >
+            <argument type="service" id="rompetomp_inertia.inertia" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
         <service id="mercuryseries_inertia_maker.exception_handler_subscriber"
             class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\ExceptionHandlerSubscriber"
         >
