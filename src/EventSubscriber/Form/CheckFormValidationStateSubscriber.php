@@ -1,8 +1,8 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form;
+namespace MercurySeries\Bundle\InertiaBundle\EventSubscriber\Form;
 
-use MercurySeries\Bundle\InertiaMakerBundle\Exception\InvalidFormException;
+use MercurySeries\Bundle\InertiaBundle\Exception\InvalidFormException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;

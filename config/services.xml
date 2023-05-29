@@ -5,74 +5,74 @@
         https://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="mercuryseries_inertia_maker.routing_history.previous_url_session_key">_mercuryseries_inertia_maker_routing_previous_url</parameter>
+        <parameter key="mercuryseries_inertia.routing_history.previous_url_session_key">_mercuryseries_inertia_routing_previous_url</parameter>
     </parameters>
 
     <services>
         <defaults public="false" />
 
-        <service id="mercuryseries_inertia_maker.abstract_controller" class="MercurySeries\Bundle\InertiaMakerBundle\Controller\AbstractController" public="true">
+        <service id="mercuryseries_inertia.abstract_controller" class="MercurySeries\Bundle\InertiaBundle\Controller\AbstractController" public="true">
             <call method="setContainer">
                 <argument type="service" id="Psr\Container\ContainerInterface" />
             </call>
             <tag name="container.service_subscriber"/>
         </service>
 
-        <service id="mercuryseries_inertia_maker.inertia_subscriber"
-            class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\InertiaSubscriber"
+        <service id="mercuryseries_inertia.inertia_subscriber"
+            class="MercurySeries\Bundle\InertiaBundle\EventSubscriber\InertiaSubscriber"
         >
             <argument type="service" id="rompetomp_inertia.inertia" />
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="mercuryseries_inertia_maker.store_previous_url_in_session_subscriber"
-            class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\StorePreviousUrlInSessionSubscriber"
+        <service id="mercuryseries_inertia.store_previous_url_in_session_subscriber"
+            class="MercurySeries\Bundle\InertiaBundle\EventSubscriber\StorePreviousUrlInSessionSubscriber"
         >
-            <argument>%mercuryseries_inertia_maker.routing_history.previous_url_session_key%</argument>
+            <argument>%mercuryseries_inertia.routing_history.previous_url_session_key%</argument>
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="mercuryseries_inertia_maker.exception_handler_subscriber"
-            class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\ExceptionHandlerSubscriber"
+        <service id="mercuryseries_inertia.exception_handler_subscriber"
+            class="MercurySeries\Bundle\InertiaBundle\EventSubscriber\ExceptionHandlerSubscriber"
         >
-            <argument type="service" id="mercuryseries_inertia_maker.service.routing_history" />
+            <argument type="service" id="mercuryseries_inertia.service.routing_history" />
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="mercuryseries_inertia_maker.check_form_validation_state_subscriber"
-            class="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber"
+        <service id="mercuryseries_inertia.check_form_validation_state_subscriber"
+            class="MercurySeries\Bundle\InertiaBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber"
         >
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber"
-            alias="mercuryseries_inertia_maker.check_form_validation_state_subscriber"
+        <service id="MercurySeries\Bundle\InertiaBundle\EventSubscriber\Form\CheckFormValidationStateSubscriber"
+            alias="mercuryseries_inertia.check_form_validation_state_subscriber"
         />
 
-        <service id="mercuryseries_inertia_maker.service.routing_history" class="MercurySeries\Bundle\InertiaMakerBundle\Service\RoutingHistory">
+        <service id="mercuryseries_inertia.service.routing_history" class="MercurySeries\Bundle\InertiaBundle\Service\RoutingHistory">
             <argument type="service" id="request_stack" />
-            <argument>%mercuryseries_inertia_maker.routing_history.previous_url_session_key%</argument>
+            <argument>%mercuryseries_inertia.routing_history.previous_url_session_key%</argument>
         </service>
 
-        <service id="MercurySeries\Bundle\InertiaMakerBundle\Contract\RoutingHistoryInterface"
-            alias="mercuryseries_inertia_maker.service.routing_history"
+        <service id="MercurySeries\Bundle\InertiaBundle\Contract\RoutingHistoryInterface"
+            alias="mercuryseries_inertia.service.routing_history"
         />
 
-        <service id="mercuryseries_inertia_maker.service.bundle_detector" class="MercurySeries\Bundle\InertiaMakerBundle\Service\BundleDetector">
+        <service id="mercuryseries_inertia.service.bundle_detector" class="MercurySeries\Bundle\InertiaBundle\Service\BundleDetector">
             <argument type="service" id="filesystem" />
             <argument>%kernel.project_dir%</argument>
-            <argument>%mercuryseries_inertia_maker.ssr.bundle%</argument>
+            <argument>%mercuryseries_inertia.ssr.bundle%</argument>
         </service>
 
-        <service id="mercuryseries_inertia_maker.command.start_ssr" class="MercurySeries\Bundle\InertiaMakerBundle\Command\StartInertiaSsrCommand">
-            <argument type="service" id="mercuryseries_inertia_maker.service.bundle_detector" />
-            <argument>%mercuryseries_inertia_maker.ssr.enabled%</argument>
-            <argument>%mercuryseries_inertia_maker.ssr.bundle%</argument>
+        <service id="mercuryseries_inertia.command.start_ssr" class="MercurySeries\Bundle\InertiaBundle\Command\StartInertiaSsrCommand">
+            <argument type="service" id="mercuryseries_inertia.service.bundle_detector" />
+            <argument>%mercuryseries_inertia.ssr.enabled%</argument>
+            <argument>%mercuryseries_inertia.ssr.bundle%</argument>
             <tag name="console.command" />
         </service>
 
-        <service id="mercuryseries_inertia_maker.command.stop_ssr" class="MercurySeries\Bundle\InertiaMakerBundle\Command\StopInertiaSsrCommand">
-            <argument>%mercuryseries_inertia_maker.ssr.url%</argument>
+        <service id="mercuryseries_inertia.command.stop_ssr" class="MercurySeries\Bundle\InertiaBundle\Command\StopInertiaSsrCommand">
+            <argument>%mercuryseries_inertia.ssr.url%</argument>
             <tag name="console.command" />
         </service>
     </services>

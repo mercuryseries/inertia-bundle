@@ -1,17 +1,17 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMakerBundle;
+namespace MercurySeries\Bundle\InertiaBundle;
 
-use MercurySeries\Bundle\InertiaMakerBundle\DependencyInjection\MercurySeriesInertiaMakerExtension;
+use MercurySeries\Bundle\InertiaBundle\DependencyInjection\MercurySeriesInertiaExtension;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class MercurySeriesInertiaMakerBundle extends Bundle
+final class MercurySeriesInertiaBundle extends Bundle
 {
     public function getContainerExtension(): ?ExtensionInterface
     {
         if (null === $this->extension) {
-            $this->extension = new MercurySeriesInertiaMakerExtension();
+            $this->extension = new MercurySeriesInertiaExtension();
         }
 
         return $this->extension;

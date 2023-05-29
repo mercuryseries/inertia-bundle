@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMakerBundle\DependencyInjection;
+namespace MercurySeries\Bundle\InertiaBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -10,7 +10,7 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('mercuryseries_inertia_maker');
+        $treeBuilder = new TreeBuilder('mercuryseries_inertia');
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode

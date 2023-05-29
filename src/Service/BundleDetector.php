@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMakerBundle\Service;
+namespace MercurySeries\Bundle\InertiaBundle\Service;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;

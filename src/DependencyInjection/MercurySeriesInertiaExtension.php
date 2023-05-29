@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMakerBundle\DependencyInjection;
+namespace MercurySeries\Bundle\InertiaBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class MercurySeriesInertiaMakerExtension extends Extension implements PrependExtensionInterface
+final class MercurySeriesInertiaExtension extends Extension implements PrependExtensionInterface
 {
     public function prepend(ContainerBuilder $container)
     {
@@ -16,7 +16,7 @@ final class MercurySeriesInertiaMakerExtension extends Extension implements Prep
 
         // iterate in reverse to preserve the original order after prepending the config
         foreach (array_reverse($configs) as $config) {
-            // check if ssr is set in the "mercuryseries_inertia_maker" configuration
+            // check if ssr is set in the "mercuryseries_inertia" configuration
             if (isset($config['ssr'])) {
                 $ssrConfig = $config['ssr'];
 
@@ -29,9 +29,9 @@ final class MercurySeriesInertiaMakerExtension extends Extension implements Prep
                 ]);
 
                 // set required container parameters
-                $container->setParameter('mercuryseries_inertia_maker.ssr.enabled', $ssrConfig['enabled']);
-                $container->setParameter('mercuryseries_inertia_maker.ssr.url', $ssrConfig['url']);
-                $container->setParameter('mercuryseries_inertia_maker.ssr.bundle', $ssrConfig['bundle']);
+                $container->setParameter('mercuryseries_inertia.ssr.enabled', $ssrConfig['enabled']);
+                $container->setParameter('mercuryseries_inertia.ssr.url', $ssrConfig['url']);
+                $container->setParameter('mercuryseries_inertia.ssr.bundle', $ssrConfig['bundle']);
             }
 
             if (isset($config['csrf_cookie'])) {
@@ -49,6 +49,6 @@ final class MercurySeriesInertiaMakerExtension extends Extension implements Prep
 
     public function getAlias(): string
     {
-        return 'mercuryseries_inertia_maker';
+        return 'mercuryseries_inertia';
     }
 }

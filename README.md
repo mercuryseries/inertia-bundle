@@ -1,4 +1,4 @@
-# Enhanced Symfony adapter for Inertia.js
+Enhanced Symfony adapter for Inertia.js
 =========================================
 
 This is an enhanced Inertia.js server-side adapter based on [rompetomp/inertia-bundle](https://github.com/rompetomp/inertia-bundle).
@@ -16,7 +16,7 @@ Applications that use Symfony Flex
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require mercuryseries/inertia-maker-bundle
+$ composer require mercuryseries/inertia-bundle
 ```
 
 Applications that don't use Symfony Flex
@@ -28,7 +28,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require mercuryseries/inertia-maker-bundle
+$ composer require mercuryseries/inertia-bundle
 ```
 
 ### Step 2: Enable the Bundle
@@ -41,6 +41,6 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    MercurySeries\Bundle\InertiaMakerBundle\MercurySeriesInertiaMakerBundle::class => ['all' => true],
+    MercurySeries\Bundle\InertiaBundle\MercurySeriesInertiaBundle::class => ['all' => true],
 ];
 ```

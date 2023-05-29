@@ -1,10 +1,10 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMakerBundle\Service;
+namespace MercurySeries\Bundle\InertiaBundle\Service;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use MercurySeries\Bundle\InertiaMakerBundle\Contract\RoutingHistoryInterface;
+use MercurySeries\Bundle\InertiaBundle\Contract\RoutingHistoryInterface;
 
 final class RoutingHistory implements RoutingHistoryInterface
 {

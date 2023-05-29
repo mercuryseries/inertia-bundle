@@ -1,6 +1,6 @@
 <?php
 
-namespace MercurySeries\Bundle\InertiaMakerBundle\Contract;
+namespace MercurySeries\Bundle\InertiaBundle\Contract;
 
 interface RoutingHistoryInterface
 {
