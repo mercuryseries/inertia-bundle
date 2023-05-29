@@ -1,3 +1,5 @@
+[TO_REPLACE]
+
 https://github.com/symfony/recipes-contrib/actions/runs/1264884891/workflow
 
 git ls-tree HEAD */*/* | php ~/Code/BookApps/inertia-symfony-react-apps/recipes-checker/run generate:flex-endpoint --contrib mercuryseries/inertia-maker-bundle-recipe main main .
