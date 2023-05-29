@@ -18,7 +18,7 @@ final class StartInertiaSsrCommand extends Command
 
         private readonly bool $ssrEnabled,
 
-        private readonly string $configuredBundle
+        private readonly ?string $configuredBundle = null
     ) {
         parent::__construct();
     }

@@ -10,9 +10,9 @@ final class BundleDetector
     public function __construct(
         private readonly Filesystem $filesystem,
 
-        private readonly string $configuredBundle,
+        private readonly string $basePath,
 
-        private readonly string $basePath
+        private readonly ?string $configuredBundle = null,
     ) {
     }
 
@@ -27,7 +27,7 @@ final class BundleDetector
         ];
 
         foreach ($bundlePaths as $bundlePath) {
-            if ($this->filesystem->exists($bundlePath)) {
+            if ($bundlePath && $this->filesystem->exists($bundlePath)) {
                 return $bundlePath;
             }
         }

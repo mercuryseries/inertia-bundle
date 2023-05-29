@@ -60,8 +60,8 @@
 
         <service id="mercuryseries_inertia_maker.service.bundle_detector" class="MercurySeries\Bundle\InertiaMakerBundle\Service\BundleDetector">
             <argument type="service" id="filesystem" />
-            <argument>%mercuryseries_inertia_maker.ssr.bundle%</argument>
             <argument>%kernel.project_dir%</argument>
+            <argument>%mercuryseries_inertia_maker.ssr.bundle%</argument>
         </service>
 
         <service id="mercuryseries_inertia_maker.command.start_ssr" class="MercurySeries\Bundle\InertiaMakerBundle\Command\StartInertiaSsrCommand">
