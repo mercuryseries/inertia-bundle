@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 class StopInertiaSsrCommand extends Command
 {
     public function __construct(
-        #[Autowire('%app.inertia.ssr.url%')]
+        #[Autowire('%mercuryseries_inertia_maker.ssr.url%')]
         private readonly string $ssrUrl
     ) {
         parent::__construct();

@@ -13,7 +13,7 @@ class RoutingHistory
     public function __construct(
         readonly RequestStack $requestStack,
 
-        #[Autowire('%mercuryseries_inertia_maker.previous_url_session_key%')]
+        #[Autowire('%mercuryseries_inertia_maker.routing_history.previous_url_session_key%')]
         private readonly string $previousUrlSessionKey
     ) {
         $this->request = $requestStack->getCurrentRequest();

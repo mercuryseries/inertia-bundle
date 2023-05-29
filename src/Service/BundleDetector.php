@@ -11,7 +11,7 @@ class BundleDetector
     public function __construct(
         private readonly Filesystem $filesystem,
 
-        #[Autowire('%app.inertia.ssr.bundle%')]
+        #[Autowire('%mercuryseries_inertia_maker.ssr.bundle%')]
         private readonly string $configuredBundle,
 
         #[Autowire('%kernel.project_dir%')]

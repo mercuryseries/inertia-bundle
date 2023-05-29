@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class StorePreviousUrlInSessionSubscriber implements EventSubscriberInterface
 {
     public function __construct(
-        #[Autowire('%mercuryseries_inertia_maker.previous_url_session_key%')]
+        #[Autowire('%mercuryseries_inertia_maker.routing_history.previous_url_session_key%')]
         private readonly string $previousUrlSessionKey,
     ) {
     }

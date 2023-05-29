@@ -22,10 +22,10 @@ class StartInertiaSsrCommand extends Command
     public function __construct(
         private readonly BundleDetector $bundleDetector,
 
-        #[Autowire('%app.inertia.ssr.enabled%')]
+        #[Autowire('%mercuryseries_inertia_maker.ssr.enabled%')]
         private readonly bool $ssrEnabled,
 
-        #[Autowire('%app.inertia.ssr.bundle%')]
+        #[Autowire('%mercuryseries_inertia_maker.ssr.bundle%')]
         private readonly string $configuredBundle
     ) {
         parent::__construct();
@@ -36,7 +36,7 @@ class StartInertiaSsrCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         if (!$this->ssrEnabled) {
-            $io->error('Inertia SSR is not enabled. Enable it via the `app.inertia.ssr.enabled` config parameter.');
+            $io->error('Inertia SSR is not enabled. Enable it via the `mercuryseries_inertia_maker.ssr.enabled` config parameter.');
 
             return Command::FAILURE;
         }
@@ -47,7 +47,7 @@ class StartInertiaSsrCommand extends Command
             $io->error(
                 $this->configuredBundle
                     ? 'Inertia SSR bundle not found at the configured path: "'.$this->configuredBundle.'"'
-                    : 'Inertia SSR bundle not found. Set the correct Inertia SSR bundle path via the `app.inertia.ssr.bundle` config parameter.'
+                    : 'Inertia SSR bundle not found. Set the correct Inertia SSR bundle path via the `mercuryseries_inertia_maker.ssr.bundle` config parameter.'
             );
 
             return Command::FAILURE;

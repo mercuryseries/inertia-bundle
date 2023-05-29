@@ -1,14 +1,2 @@
 Symfony Recipes Docs:
 - https://github.com/symfony/recipes/blob/main/README.rst
-
-StartInertiaSsrCommand.php
-    - %app.inertia.ssr.enabled%
-    - %app.inertia.ssr.bundle%
-    - $io->error('Inertia SSR is not enabled. Enable it via the `app.inertia.ssr.enabled` config parameter.');
-    - 'Inertia SSR bundle not found. Set the correct Inertia SSR bundle path via the `app.inertia.ssr.bundle` config parameter.'
-
-StopInertiaSsrCommand.php
-    - %app.inertia.ssr.url%
-
-BundleDetector.php
-    - %app.inertia.ssr.bundle%

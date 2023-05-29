@@ -5,7 +5,7 @@
         https://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="mercuryseries_inertia_maker.previous_url_session_key">_mercuryseries_inertia_maker_previous_url</parameter>
+        <parameter key="mercuryseries_inertia_maker.routing_history.previous_url_session_key">_mercuryseries_inertia_maker_routing_previous_url</parameter>
     </parameters>
 
     <services>
