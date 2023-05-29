@@ -25,6 +25,6 @@
         "symfony/serializer-pack": "^1.0",
         "rompetomp/inertia-bundle": "^2.4",
         "dneustadt/csrf-cookie-bundle": "^1.0",
-        "friendsofsymfony/jsrouting-bundle": "^3.2",
+        "friendsofsymfony/jsrouting-bundle": "^3.2"
     }
 }
