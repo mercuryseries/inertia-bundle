@@ -16,16 +16,16 @@
     ],
     "require": {
         "php": "^7.4|^8.1",
-        "symfony/config": "^4.4|^5.1.7|^6.0",
-        "symfony/dependency-injection": "^4.4|^5.1.7|^6.0",
-        "symfony/http-kernel": "^4.4|^5.1.7|^6.0",
-        "symfony/process": "^4.4|^5.1.7|^6.0",
-        "symfony/form": "^4.4|^5.1.7|^6.0",
+        "symfony/config": "^5.0|^6.0",
+        "symfony/dependency-injection": "^5.0|^6.0",
+        "symfony/http-kernel": "^5.0|^6.0",
+        "symfony/process": "^5.0|^6.0",
+        "symfony/form": "^5.0|^6.0",
         "symfony/webpack-encore-bundle": "^1.0|^2.0",
         "symfony/twig-pack": "^1.0",
         "symfony/serializer-pack": "^1.0",
         "rompetomp/inertia-bundle": "^2.4",
         "dneustadt/csrf-cookie-bundle": "^1.0",
-        "friendsofsymfony/jsrouting-bundle": "^3.2"
+        "friendsofsymfony/jsrouting-bundle": "^2.8|^3.2"
     }
 }
