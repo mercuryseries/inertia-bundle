@@ -47,6 +47,10 @@
             <argument>%mercuryseries_inertia_maker.routing_history.previous_url_session_key%</argument>
         </service>
 
+        <service id="MercurySeries\Bundle\InertiaMakerBundle\Service\RoutingHistoryInterface"
+            alias="mercuryseries_inertia_maker.service.routing_history"
+        />
+
         <service id="mercuryseries_inertia_maker.service.bundle_detector" class="MercurySeries\Bundle\InertiaMakerBundle\Service\BundleDetector">
             <argument type="service" id="filesystem" />
             <argument>%mercuryseries_inertia_maker.ssr.bundle%</argument>

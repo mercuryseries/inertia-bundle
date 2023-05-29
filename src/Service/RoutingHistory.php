@@ -5,7 +5,7 @@ namespace MercurySeries\Bundle\InertiaMakerBundle\Service;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-final class RoutingHistory
+final class RoutingHistory implements RoutingHistoryInterface
 {
     private readonly Request $request;
 
