@@ -17,6 +17,7 @@ final class StopInertiaSsrCommand extends Command
 
     protected function configure(): void
     {
+        $this->setName('inertia:stop-ssr');
         $this->setDescription('Stop the Inertia SSR server');
     }
 

@@ -25,6 +25,7 @@ final class StartInertiaSsrCommand extends Command
 
     protected function configure(): void
     {
+        $this->setName('inertia:start-ssr');
         $this->setDescription('Start the Inertia SSR server');
     }
 

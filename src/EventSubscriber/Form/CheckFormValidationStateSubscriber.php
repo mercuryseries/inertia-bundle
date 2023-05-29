@@ -2,7 +2,7 @@
 
 namespace MercurySeries\Bundle\InertiaMakerBundle\EventSubscriber\Form;
 
-use App\Exception\InvalidFormException;
+use MercurySeries\Bundle\InertiaMakerBundle\Exception\InvalidFormException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
