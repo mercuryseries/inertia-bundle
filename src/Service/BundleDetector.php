@@ -18,16 +18,16 @@ final class BundleDetector
 
     public function detect(): ?string
     {
-        $bundlePaths = [
+        $bundlePaths = array_filter([
             $this->configuredBundle,
             Path::makeAbsolute('public/build-ssr/ssr.js', $this->basePath),
             Path::makeAbsolute('public/build-ssr/ssr.mjs', $this->basePath),
             Path::makeAbsolute('public/build/ssr.js', $this->basePath),
             Path::makeAbsolute('public/build/ssr.mjs', $this->basePath),
-        ];
+        ]);
 
         foreach ($bundlePaths as $bundlePath) {
-            if ($bundlePath && $this->filesystem->exists($bundlePath)) {
+            if ($this->filesystem->exists($bundlePath)) {
                 return $bundlePath;
             }
         }
