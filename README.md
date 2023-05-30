@@ -6,16 +6,6 @@ This is an enhanced Inertia.js server-side adapter based on [rompetomp/inertia-b
 Installation
 ============
 
-First, make sure you have `symfony/webpack-encore-bundle` or `pentatrion/vite-bundle` installed:
-
-```shell
-# Webpack
-$ composer require symfony/webpack-encore-bundle
-
-# Vite
-$ composer require pentatrion/vite-bundle
-```
-
 Make sure Composer is installed globally, as explained in the
 [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
@@ -53,6 +43,18 @@ return [
     // ...
     MercurySeries\Bundle\InertiaBundle\MercurySeriesInertiaBundle::class => ['all' => true],
 ];
+```
+
+### Step 2: Webpack or Vite
+
+Choose [`symfony/webpack-encore-bundle`](https://symfony.com/doc/current/frontend.html) if you want to use [Webpack](https://webpack.js.org/) or [`pentatrion/vite-bundle`](https://github.com/lhapaipai/vite-bundle) if you want to use [Vite](https://vitejs.dev/):
+
+```shell
+# Webpack
+$ composer require symfony/webpack-encore-bundle
+
+# Vite
+$ composer require pentatrion/vite-bundle
 ```
 
 ### Step 3: Routes Configurations
