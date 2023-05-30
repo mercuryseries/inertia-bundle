@@ -1,0 +1,11 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+    defaults:
+        csrf:
+            create: true
+            require: ['POST', 'PUT', 'PATCH', 'DELETE']
+
+kernel:
+    resource: ../../src/Kernel.php
+    type: annotation

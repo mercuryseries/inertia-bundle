@@ -91,6 +91,19 @@ final class InertiaInstallCommand extends Command
             );
         });
 
+        // Routes...
+        if ($this->filesystem->exists(Path::makeAbsolute('config/routes/annotations.yaml', $this->basePath))) {
+            $this->filesystem->copy(
+                __DIR__.'/../../stubs/config/routes/annotations.yaml',
+                Path::makeAbsolute('config/routes/annotations.yaml', $this->basePath)
+            );
+        } else {
+            $this->filesystem->copy(
+                __DIR__.'/../../stubs/config/routes.yaml',
+                Path::makeAbsolute('config/routes.yaml', $this->basePath)
+            );
+        }
+
         // Controllers...
         $this->ensureDirectoryExists(Path::makeAbsolute('src/Controller', $this->basePath));
         $this->filesystem->mirror(

@@ -1,0 +1,9 @@
+controllers:
+    resource:
+        path: ../../src/Controller/
+        namespace: App\Controller
+    type: attribute
+    defaults:
+        csrf:
+            create: true
+            require: ['POST', 'PUT', 'PATCH', 'DELETE']
