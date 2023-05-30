@@ -47,7 +47,7 @@ return [
 
 ### Step 3: Choose your stack
 
-Add `--ssr` to any of the following options to add SSR support:
+Add `--ssr` to any of the following options to add [Server-side Rendering (SSR)](https://inertiajs.com/server-side-rendering) support:
 
 ```shell
 # React + Webpack Encore
