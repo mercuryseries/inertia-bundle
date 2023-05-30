@@ -39,9 +39,9 @@ class InvalidFormException extends HttpException
         $errors = [];
 
         foreach ($this->getForm()->getErrors(true) as $error) {
-            $parentFormName = $error->getOrigin()->getParent() ? $error->getOrigin()->getParent()->getName() : null;
+            $parentFormName = $error->getOrigin()->getParent() ? $error->getOrigin()->getParent()->getName() : '';
 
-            if (null !== $parentFormName) {
+            if ('' !== $parentFormName) {
                 if (!isset($errors[$parentFormName])) {
                     $errors[$parentFormName] = [];
                 }

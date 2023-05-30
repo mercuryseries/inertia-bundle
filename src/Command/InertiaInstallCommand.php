@@ -111,6 +111,15 @@ final class InertiaInstallCommand extends Command
         if ($this->filesystem->exists(Path::makeAbsolute('assets/app.js', $this->basePath))) {
             $this->filesystem->remove(Path::makeAbsolute('assets/app.js', $this->basePath));
         }
+        if ($this->filesystem->exists(Path::makeAbsolute('assets/bootstrap.js', $this->basePath))) {
+            $this->filesystem->remove(Path::makeAbsolute('assets/bootstrap.js', $this->basePath));
+        }
+        if ($this->filesystem->exists(Path::makeAbsolute('assets/controllers.json', $this->basePath))) {
+            $this->filesystem->remove(Path::makeAbsolute('assets/controllers.json', $this->basePath));
+        }
+        if ($this->filesystem->exists(Path::makeAbsolute('assets/controllers', $this->basePath))) {
+            $this->filesystem->remove(Path::makeAbsolute('assets/controllers', $this->basePath));
+        }
 
         $this->filesystem->mirror(
             __DIR__.'/../../stubs/assets/js/components',
