@@ -146,14 +146,14 @@ final class InertiaInstallCommand extends Command
             $this->installInertiaReactSsrStack();
         }
 
-        $this->io->info('Installing and building Node dependencies.');
+        $this->io->info('Installing Node dependencies.');
 
         if ($this->filesystem->exists(Path::makeAbsolute('pnpm-lock.yaml', $this->basePath))) {
-            $this->runCommands(['pnpm install', 'pnpm run dev']);
+            $this->runCommands(['pnpm install']);
         } elseif ($this->filesystem->exists(Path::makeAbsolute('yarn.lock', $this->basePath))) {
-            $this->runCommands(['yarn install', 'yarn run dev']);
+            $this->runCommands(['yarn install']);
         } else {
-            $this->runCommands(['php bin/console cache:clear', 'npm install', 'npm run dev']);
+            $this->runCommands(['npm install']);
         }
 
         $this->io->info('Inertia scaffolding installed successfully.');
