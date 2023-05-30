@@ -12,7 +12,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Path;
 use Symfony\Component\Process\Process;
 
-class InertiaInstallCommand extends Command
+final class InertiaInstallCommand extends Command
 {
     private $filesystem;
     private $basePath;
@@ -63,7 +63,7 @@ class InertiaInstallCommand extends Command
     /**
      * Install the Inertia React stack.
      */
-    public function installInertiaReactStack(): int
+    protected function installInertiaReactStack(): int
     {
         // Install Inertia...
         if (!$this->requireComposerPackages(['symfony/webpack-encore-bundle:^1.17|^2.0'])) {
@@ -162,7 +162,7 @@ class InertiaInstallCommand extends Command
     /**
      * Install the Inertia Vue stack.
      */
-    public function installInertiaVueStack(): int
+    protected function installInertiaVueStack(): int
     {
         throw new \RuntimeException('Not implemented yet!');
     }
