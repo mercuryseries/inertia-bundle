@@ -146,14 +146,14 @@ final class InertiaInstallCommand extends Command
             $this->installInertiaReactSsrStack();
         }
 
-        $this->io->info('Installing and building Node dependenciesx.');
+        $this->io->info('Installing Node dependencies.');
 
         if ($this->filesystem->exists(Path::makeAbsolute('pnpm-lock.yaml', $this->basePath))) {
-            $this->runCommands(['pnpm install', 'pnpm run dev']);
+            $this->runCommand('pnpm install');
         } elseif ($this->filesystem->exists(Path::makeAbsolute('yarn.lock', $this->basePath))) {
-            $this->runCommands(['yarn install', 'yarn run dev']);
+            $this->runCommand('yarn install');
         } else {
-            $this->runCommands(['npm install', 'npm run dev']);
+            $this->runCommand('npm install');
         }
 
         $this->io->info('Inertia scaffolding installed successfully.');
@@ -261,11 +261,11 @@ final class InertiaInstallCommand extends Command
     /**
      * Run the given commands.
      */
-    protected function runCommands(array $commands): void
+    protected function runCommand(string $command): void
     {
-        $process = Process::fromShellCommandline(implode(' && ', $commands));
+        $process = Process::fromShellCommandline($command);
         $process->setTimeout(null);
-        // $process->setTty(Process::isTtySupported());
+        $process->setTty(Process::isTtySupported());
 
         $process->run(function ($type, $line) {
             $this->output->write('    '.$line);
