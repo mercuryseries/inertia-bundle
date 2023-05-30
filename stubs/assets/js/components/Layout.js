@@ -3,7 +3,7 @@ import { Link, usePage } from "@inertiajs/react";
 import Routing from "fos-router";
 
 const Layout = ({ children }) => {
-  const { component } = usePage();
+  const { component, props } = usePage();
 
   return (
     <>
@@ -26,11 +26,27 @@ const Layout = ({ children }) => {
                 About Us
               </Link>
             </li>
+            <li>
+              <Link
+                href={Routing.generate("app_contact")}
+                className={component === "Contact" ? "active" : ""}
+              >
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </nav>
       </header>
 
-      <main role="main">{children}</main>
+      <main role="main">
+        {props.flash.success && (
+          <div className="alert alert-success" role="alert">
+            {props.flash.success}
+          </div>
+        )}
+
+        {children}
+      </main>
 
       <footer>
         <p>

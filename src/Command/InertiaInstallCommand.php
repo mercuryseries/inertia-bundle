@@ -94,6 +94,20 @@ final class InertiaInstallCommand extends Command
             $this->filesystem->remove(Path::makeAbsolute('src/Controller/.gitignore', $this->basePath));
         }
 
+        // Forms...
+        $this->ensureDirectoryExists(Path::makeAbsolute('src/Form', $this->basePath));
+        $this->filesystem->mirror(
+            __DIR__.'/../../stubs/src/Form',
+            Path::makeAbsolute('src/Form', $this->basePath)
+        );
+
+        // Event Subscribers...
+        $this->ensureDirectoryExists(Path::makeAbsolute('src/EventSubscriber', $this->basePath));
+        $this->filesystem->mirror(
+            __DIR__.'/../../stubs/src/EventSubscriber',
+            Path::makeAbsolute('src/EventSubscriber', $this->basePath)
+        );
+
         // Templates...
         if ($this->filesystem->exists(Path::makeAbsolute('templates/base.html.twig', $this->basePath))) {
             $this->filesystem->remove(Path::makeAbsolute('templates/base.html.twig', $this->basePath));

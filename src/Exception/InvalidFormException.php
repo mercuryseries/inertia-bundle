@@ -41,11 +41,8 @@ class InvalidFormException extends HttpException
         foreach ($this->getForm()->getErrors(true) as $error) {
             $parentFormName = $error->getOrigin()->getParent() ? $error->getOrigin()->getParent()->getName() : '';
 
-            if ('' !== $parentFormName) {
-                if (!isset($errors[$parentFormName])) {
-                    $errors[$parentFormName] = [];
-                }
-
+            if ($parentFormName) {
+                $errors[$parentFormName] ??= [];
                 $errors[$parentFormName][$error->getOrigin()->getName()] = $error->getMessage();
             } else {
                 $errorKey = $error->getOrigin()->getName() ?: '__non_field__';
