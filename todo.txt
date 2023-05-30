@@ -16,3 +16,11 @@ git ls-tree HEAD */*/* | php ~/Code/BookApps/inertia-symfony-react-apps/recipes-
 
 Make it work with Vite too: https://github.com/symfony/maker-bundle/blob/main/src/Maker/MakeController.php
 
+symfony console inertia:install vue
+symfony console inertia:install react
+ 
+symfony console inertia:install vue --ssr
+symfony console inertia:install react --ssr
+
+npm install
+npm run dev
