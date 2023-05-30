@@ -127,13 +127,13 @@ final class InertiaInstallCommand extends Command
         }
 
         // Webpack...
+        if ($this->filesystem->exists(Path::makeAbsolute('webpack.config.js', $this->basePath))) {
+            $this->filesystem->remove(Path::makeAbsolute('webpack.config.js', $this->basePath));
+        }
+
         $this->filesystem->copy(
             __DIR__.'/../../stubs/webpack.config.js',
             Path::makeAbsolute('webpack.config.js', $this->basePath)
-        );
-        $this->filesystem->copy(
-            __DIR__.'/../../stubs/webpack.ssr.config.js',
-            Path::makeAbsolute('webpack.ssr.config.js', $this->basePath)
         );
         $this->filesystem->copy(
             __DIR__.'/../../stubs/jsconfig.json',
@@ -146,9 +146,9 @@ final class InertiaInstallCommand extends Command
 
         $this->io->info('Installing and building Node dependencies.');
 
-        if (file_exists(Path::makeAbsolute('pnpm-lock.yaml', $this->basePath))) {
+        if ($this->filesystem->exists(Path::makeAbsolute('pnpm-lock.yaml', $this->basePath))) {
             $this->runCommands(['pnpm install', 'pnpm run dev']);
-        } elseif (file_exists(Path::makeAbsolute('yarn.lock', $this->basePath))) {
+        } elseif ($this->filesystem->exists(Path::makeAbsolute('yarn.lock', $this->basePath))) {
             $this->runCommands(['yarn install', 'yarn run dev']);
         } else {
             $this->runCommands(['npm install', 'npm run dev']);
@@ -173,6 +173,11 @@ final class InertiaInstallCommand extends Command
     protected function installInertiaReactSsrStack(): void
     {
         $this->filesystem->copy(
+            __DIR__.'/../../stubs/webpack.ssr.config.js',
+            Path::makeAbsolute('webpack.ssr.config.js', $this->basePath)
+        );
+
+        $this->filesystem->copy(
             __DIR__.'/../../stubs/assets/js/ssr.js',
             Path::makeAbsolute('assets/js/ssr.js', $this->basePath)
         );
@@ -189,7 +194,7 @@ final class InertiaInstallCommand extends Command
      */
     protected function replaceInFile(string $search, string $replace, string $path): void
     {
-        file_put_contents($path, str_replace($search, $replace, file_get_contents($path)));
+        $this->filesystem->dumpFile($path, str_replace($search, $replace, file_get_contents($path)));
     }
 
     /**
@@ -223,7 +228,7 @@ final class InertiaInstallCommand extends Command
     {
         $packageJsonFile = Path::makeAbsolute('package.json', $this->basePath);
 
-        if (!file_exists($packageJsonFile)) {
+        if (!$this->filesystem->exists($packageJsonFile)) {
             return;
         }
 
@@ -238,7 +243,7 @@ final class InertiaInstallCommand extends Command
 
         ksort($packages[$configurationKey]);
 
-        file_put_contents(
+        $this->filesystem->dumpFile(
             $packageJsonFile,
             json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT).PHP_EOL
         );
@@ -258,7 +263,7 @@ final class InertiaInstallCommand extends Command
     {
         $process = Process::fromShellCommandline(implode(' && ', $commands), null, null, null, null);
 
-        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
+        if ('\\' !== DIRECTORY_SEPARATOR && $this->filesystem->exists('/dev/tty') && is_readable('/dev/tty')) {
             try {
                 $process->setTty(true);
             } catch (RuntimeException $e) {
