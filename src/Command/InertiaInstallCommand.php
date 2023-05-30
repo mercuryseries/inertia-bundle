@@ -153,7 +153,7 @@ final class InertiaInstallCommand extends Command
         } elseif ($this->filesystem->exists(Path::makeAbsolute('yarn.lock', $this->basePath))) {
             $this->runCommands(['yarn install', 'yarn run dev']);
         } else {
-            $this->runCommands(['npm install', 'npm run dev']);
+            $this->runCommands(['php bin/console cache:clear', 'npm install', 'npm run dev']);
         }
 
         $this->io->info('Inertia scaffolding installed successfully.');
