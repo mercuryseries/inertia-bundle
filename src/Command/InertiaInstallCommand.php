@@ -66,7 +66,7 @@ class InertiaInstallCommand extends Command
     public function installInertiaReactStack(): int
     {
         // Install Inertia...
-        if (!$this->requireComposerPackages(['symfony/webpack-encore-bundle:^2.0'])) {
+        if (!$this->requireComposerPackages(['symfony/webpack-encore-bundle:^1.17|^2.0'])) {
             return Command::FAILURE;
         }
 
