@@ -98,11 +98,11 @@ $ symfony console inertia:install vue --ssr
 ### Step 5: Install packages and compile assets
 
 ```shell
-# Install packages
+# Install npm and run:
 $ npm install
 
-# Build
-$ npm run dev
+# Start the development server:
+$ npm run dev-server
 
 # Start coding into assets/js/pages/ 🎉
 ```
@@ -110,7 +110,7 @@ $ npm run dev
 ### Start/Stop the SSR Server
 
 ```shell
-# First you need to build client and server bundles
+# First you need to build both client and server bundles
 $ npm run build
 
 # To start the SSR Server
