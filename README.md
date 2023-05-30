@@ -6,10 +6,14 @@ This is an enhanced Inertia.js server-side adapter based on [rompetomp/inertia-b
 Installation
 ============
 
-First, make sure you have the twig, encore and serializer recipe:
+First, make sure you have `symfony/webpack-encore-bundle` or `pentatrion/vite-bundle` installed:
 
-```console
-$ composer require twig encore serializer
+```shell
+# Webpack
+$ composer require symfony/webpack-encore-bundle
+
+# Vite
+$ composer require pentatrion/vite-bundle
 ```
 
 Make sure Composer is installed globally, as explained in the
