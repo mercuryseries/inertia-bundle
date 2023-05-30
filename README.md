@@ -63,14 +63,14 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
-+    defaults:
-+        csrf:
-+            create: true
-+            require:
-+                - 'POST'
-+                - 'PUT'
-+                - 'PATCH'
-+                - 'DELETE'
++   defaults:
++       csrf:
++           create: true
++           require:
++               - 'POST'
++               - 'PUT'
++               - 'PATCH'
++               - 'DELETE'
 ```
 
 ### Step 4: Setup
