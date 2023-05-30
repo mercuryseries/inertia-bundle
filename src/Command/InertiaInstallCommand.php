@@ -67,8 +67,6 @@ class InertiaInstallCommand extends Command
     {
         // Install Inertia...
         if (!$this->requireComposerPackages([
-            'symfony/process:^5.0|^6.0',
-            'symfony/form:^5.0|^6.0',
             'rompetomp/inertia-bundle:^2.4',
             'dneustadt/csrf-cookie-bundle:^1.0',
             'friendsofsymfony/jsrouting-bundle:^2.8|^3.2',
