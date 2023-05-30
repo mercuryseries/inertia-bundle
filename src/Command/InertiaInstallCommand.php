@@ -84,7 +84,11 @@ final class InertiaInstallCommand extends Command
                 'fos-router' => 'file:vendor/friendsofsymfony/jsrouting-bundle/Resources',
                 'prop-types' => '^15.8.1',
                 'webpack-node-externals' => '^3.0.0',
-            ] + $packages;
+            ] + array_filter(
+                $packages,
+                fn ($package) => !in_array($package, ['@hotwired/stimulus', '@symfony/stimulus-bridge']),
+                ARRAY_FILTER_USE_KEY
+            );
         });
 
         // Controllers...
