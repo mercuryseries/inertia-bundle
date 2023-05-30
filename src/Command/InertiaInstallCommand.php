@@ -32,8 +32,8 @@ final class InertiaInstallCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setName('inertia:start-ssr')
-            ->setDescription('Start the Inertia SSR server')
+            ->setName('inertia:install')
+            ->setDescription('Install the Inertia resources')
             ->addArgument('stack', InputArgument::OPTIONAL, 'The development stack that should be installed (react or vue)')
             ->addOption('ssr', null, InputOption::VALUE_NONE, 'Indicates if Inertia SSR support should be installed')
             ->addOption('composer', null, InputOption::VALUE_REQUIRED, 'Absolute path to the Composer binary which should be used to install packages', 'global')
