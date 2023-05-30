@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class ExceptionHandlerSubscriber implements EventSubscriberInterface
 {
     private $routingHistory;
-    
+
     public function __construct(RoutingHistory $routingHistory)
     {
         $this->routingHistory = $routingHistory;

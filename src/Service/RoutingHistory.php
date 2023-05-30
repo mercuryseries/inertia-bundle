@@ -2,9 +2,9 @@
 
 namespace MercurySeries\Bundle\InertiaBundle\Service;
 
+use MercurySeries\Bundle\InertiaBundle\Contract\RoutingHistoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use MercurySeries\Bundle\InertiaBundle\Contract\RoutingHistoryInterface;
 
 final class RoutingHistory implements RoutingHistoryInterface
 {
@@ -32,7 +32,7 @@ final class RoutingHistory implements RoutingHistoryInterface
     /**
      * Get the previous URL from the session if possible.
      */
-    protected function getPreviousUrlFromSession(): ?string
+    private function getPreviousUrlFromSession(): ?string
     {
         return $this->request->getSession()->get($this->previousUrlSessionKey);
     }

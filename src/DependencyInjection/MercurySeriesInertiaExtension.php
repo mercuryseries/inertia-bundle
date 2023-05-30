@@ -4,8 +4,8 @@ namespace MercurySeries\Bundle\InertiaBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 final class MercurySeriesInertiaExtension extends Extension implements PrependExtensionInterface
@@ -24,8 +24,8 @@ final class MercurySeriesInertiaExtension extends Extension implements PrependEx
                 $container->prependExtensionConfig('rompetomp_inertia', [
                     'ssr' => [
                         'enabled' => $ssrConfig['enabled'],
-                        'url' => $ssrConfig['url']
-                    ]
+                        'url' => $ssrConfig['url'],
+                    ],
                 ]);
 
                 // set required container parameters

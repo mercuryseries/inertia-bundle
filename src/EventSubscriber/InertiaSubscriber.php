@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 class InertiaSubscriber implements EventSubscriberInterface
 {
     private $inertia;
-    
+
     public function __construct(InertiaInterface $inertia)
     {
         $this->inertia = $inertia;

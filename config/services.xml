@@ -64,6 +64,12 @@
             <argument>%mercuryseries_inertia.ssr.bundle%</argument>
         </service>
 
+        <service id="mercuryseries_inertia.command.install" class="MercurySeries\Bundle\InertiaBundle\Command\InertiaInstallCommand">
+            <argument type="service" id="filesystem" />
+            <argument>%kernel.project_dir%</argument>
+            <tag name="console.command" />
+        </service>
+
         <service id="mercuryseries_inertia.command.start_ssr" class="MercurySeries\Bundle\InertiaBundle\Command\StartInertiaSsrCommand">
             <argument type="service" id="mercuryseries_inertia.service.bundle_detector" />
             <argument>%mercuryseries_inertia.ssr.enabled%</argument>
