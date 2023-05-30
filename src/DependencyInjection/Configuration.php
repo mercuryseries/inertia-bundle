@@ -15,7 +15,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->arrayNode('ssr')
+                ->arrayNode('ssr')->addDefaultsIfNotSet()
                     ->children()
                         ->booleanNode('enabled')
                             ->info('Whether or not to enable server-side-rendering. Defaults to false.')
@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
-                ->arrayNode('csrf_cookie')
+                ->arrayNode('csrf_cookie')->addDefaultsIfNotSet()
                     ->children()
                         ->integerNode('expire')
                             ->info('Number of seconds after which the CSRF token cookie expires. Defaults to 0 for a session cookie.')

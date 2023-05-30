@@ -13,31 +13,23 @@ final class MercurySeriesInertiaExtension extends Extension implements PrependEx
     public function prepend(ContainerBuilder $container)
     {
         $configs = $container->getExtensionConfig($this->getAlias());
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
 
-        // iterate in reverse to preserve the original order after prepending the config
-        foreach (array_reverse($configs) as $config) {
-            // check if ssr is set in the "mercuryseries_inertia" configuration
-            if (isset($config['ssr'])) {
-                $ssrConfig = $config['ssr'];
+        // prepend the rompetomp_inertia settings with the ssr config
+        $container->prependExtensionConfig('rompetomp_inertia', [
+            'ssr' => [
+                'enabled' => $config['ssr']['enabled'],
+                'url' => $config['ssr']['url'],
+            ],
+        ]);
 
-                // prepend the rompetomp_inertia settings with the ssr config
-                $container->prependExtensionConfig('rompetomp_inertia', [
-                    'ssr' => [
-                        'enabled' => $ssrConfig['enabled'],
-                        'url' => $ssrConfig['url'],
-                    ],
-                ]);
+        // prepend the dneustadt_csrf_cookie settings with the csrf_cookie config
+        $container->prependExtensionConfig('dneustadt_csrf_cookie', $config['csrf_cookie']);
 
-                // set required container parameters
-                $container->setParameter('mercuryseries_inertia.ssr.enabled', $ssrConfig['enabled']);
-                $container->setParameter('mercuryseries_inertia.ssr.url', $ssrConfig['url']);
-                $container->setParameter('mercuryseries_inertia.ssr.bundle', $ssrConfig['bundle']);
-            }
-
-            if (isset($config['csrf_cookie'])) {
-                // prepend the dneustadt_csrf_cookie settings with the csrf_cookie config
-                $container->prependExtensionConfig('dneustadt_csrf_cookie', $config['csrf_cookie']);
-            }
+        // set required SSR container parameters
+        foreach ($config['ssr'] as $key => $value) {
+            $container->setParameter('mercuryseries_inertia.ssr.'.$key, $value);
         }
     }
 
