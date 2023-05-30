@@ -90,6 +90,9 @@ final class InertiaInstallCommand extends Command
             __DIR__.'/../../stubs/src/Controller',
             Path::makeAbsolute('src/Controller', $this->basePath)
         );
+        if ($this->filesystem->exists(Path::makeAbsolute('src/Controller/.gitignore', $this->basePath))) {
+            $this->filesystem->remove(Path::makeAbsolute('src/Controller/.gitignore', $this->basePath));
+        }
 
         // Templates...
         if ($this->filesystem->exists(Path::makeAbsolute('templates/base.html.twig', $this->basePath))) {
