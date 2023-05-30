@@ -27,7 +27,7 @@ final class MercurySeriesInertiaExtension extends Extension implements PrependEx
         // prepend the dneustadt_csrf_cookie settings with the csrf_cookie config
         $container->prependExtensionConfig('dneustadt_csrf_cookie', $config['csrf_cookie']);
 
-        // set required SSR container parameters
+        // set SSR config as container parameters
         foreach ($config['ssr'] as $key => $value) {
             $container->setParameter('mercuryseries_inertia.ssr.'.$key, $value);
         }
