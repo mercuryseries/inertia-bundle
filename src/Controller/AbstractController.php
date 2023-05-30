@@ -13,7 +13,7 @@ abstract class AbstractController extends FrameworkBundleAbstractController
     /**
      * Creates and returns an unnamed form instance from the type of the form.
      */
-    protected function createForm(string $type, mixed $data = null, array $options = []): FormInterface
+    protected function createForm(string $type, \mixed $data = null, array $options = []): FormInterface
     {
         return $this->container->get('form.factory')
             ->createNamedBuilder('', $type, $data, $options)
