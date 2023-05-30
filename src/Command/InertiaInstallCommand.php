@@ -259,7 +259,7 @@ final class InertiaInstallCommand extends Command
     }
 
     /**
-     * Run the given commands.
+     * Run the given command.
      */
     protected function runCommand(string $command): void
     {
