@@ -73,15 +73,25 @@ controllers:
 +               - 'DELETE'
 ```
 
-### Step 4: Setup
+### Step 4: Choose your stack
 
 ```shell
-# If you use React
+# React without SSR support
 $ symfony console inertia:install react
 
-# If you use Vue
+# React with SSR support
+$ symfony console inertia:install react --ssr
+
+# Vue without SSR support
 $ symfony console inertia:install vue
 
+# Vue with SSR support
+$ symfony console inertia:install vue --ssr
+```
+
+### Step 5: Install packages and compile assets
+
+```shell
 # Install packages
 $ npm install
 
@@ -91,21 +101,15 @@ $ npm run dev
 # Start coding into assets/js/pages/ 🎉
 ```
 
-### SSR Support
+### Start/Stop the SSR Server
 
 ```shell
-# If you use React
-$ symfony console inertia:install react --ssr
-
-# If you use Vue
-$ symfony console inertia:install vue --ssr
-
-# Build client and server bundles
+# First you need to build client and server bundles
 $ npm run build
 
-# Start SSR Server
+# To start the SSR Server
 $ symfony console inertia:start-ssr
 
-# If you want to stop the SSR Server
+# To stop the SSR Server
 $ symfony console inertia:stop-ssr
 ```
