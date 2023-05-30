@@ -148,13 +148,13 @@ final class InertiaInstallCommand extends Command
 
         $this->io->info('Installing and building Node dependencies.');
 
-        // if ($this->filesystem->exists(Path::makeAbsolute('pnpm-lock.yaml', $this->basePath))) {
-        //     $this->runCommands(['pnpm install', 'pnpm run dev']);
-        // } elseif ($this->filesystem->exists(Path::makeAbsolute('yarn.lock', $this->basePath))) {
-        //     $this->runCommands(['yarn install', 'yarn run dev']);
-        // } else {
-        //     $this->runCommands(['npm install', 'npm run dev']);
-        // }
+        if ($this->filesystem->exists(Path::makeAbsolute('pnpm-lock.yaml', $this->basePath))) {
+            $this->runCommands(['pnpm install', 'pnpm run dev']);
+        } elseif ($this->filesystem->exists(Path::makeAbsolute('yarn.lock', $this->basePath))) {
+            $this->runCommands(['yarn install', 'yarn run dev']);
+        } else {
+            $this->runCommands(['npm install', 'npm run dev']);
+        }
 
         $this->io->info('Inertia scaffolding installed successfully.');
 
@@ -265,7 +265,7 @@ final class InertiaInstallCommand extends Command
     {
         $process = Process::fromShellCommandline(implode(' && ', $commands), null, null, null, null);
 
-        if ('\\' !== DIRECTORY_SEPARATOR && $this->filesystem->exists('/dev/tty') && is_readable('/dev/tty')) {
+        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty')) {
             try {
                 $process->setTty(true);
             } catch (RuntimeException $e) {
