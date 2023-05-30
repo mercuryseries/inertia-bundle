@@ -109,10 +109,6 @@ final class InertiaInstallCommand extends Command
             $this->filesystem->remove(Path::makeAbsolute('assets/app.js', $this->basePath));
         }
 
-        if ($this->filesystem->exists(Path::makeAbsolute('assets/styles/app.css', $this->basePath))) {
-            $this->filesystem->remove(Path::makeAbsolute('assets/styles/app.css', $this->basePath));
-        }
-
         $this->filesystem->mirror(
             __DIR__.'/../../stubs/assets/js/components',
             Path::makeAbsolute('assets/js/components', $this->basePath)
@@ -127,17 +123,16 @@ final class InertiaInstallCommand extends Command
         );
         $this->filesystem->mirror(
             __DIR__.'/../../stubs/assets/styles',
-            Path::makeAbsolute('assets/styles', $this->basePath)
+            Path::makeAbsolute('assets/styles', $this->basePath),
+            null,
+            ['override' => true]
         );
 
         // Webpack...
-        if ($this->filesystem->exists(Path::makeAbsolute('webpack.config.js', $this->basePath))) {
-            $this->filesystem->remove(Path::makeAbsolute('webpack.config.js', $this->basePath));
-        }
-
         $this->filesystem->copy(
             __DIR__.'/../../stubs/webpack.config.js',
-            Path::makeAbsolute('webpack.config.js', $this->basePath)
+            Path::makeAbsolute('webpack.config.js', $this->basePath),
+            true
         );
         $this->filesystem->copy(
             __DIR__.'/../../stubs/jsconfig.json',
