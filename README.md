@@ -45,19 +45,25 @@ return [
 ];
 ```
 
-### Step 2: Webpack or Vite
+### Step 3: Choose your stack
 
-Choose [`symfony/webpack-encore-bundle`](https://symfony.com/doc/current/frontend.html) if you want to use [Webpack](https://webpack.js.org/) or [`pentatrion/vite-bundle`](https://github.com/lhapaipai/vite-bundle) if you want to use [Vite](https://vitejs.dev/):
+Add `--ssr` to any of the following options to add SSR support:
 
 ```shell
-# Webpack
-$ composer require symfony/webpack-encore-bundle
+# React + Webpack Encore
+$ symfony console inertia:install react --webpack
 
-# Vite
-$ composer require pentatrion/vite-bundle
+# React + Vite
+$ symfony console inertia:install react --vite
+
+# Vue + Webpack Encore
+$ symfony console inertia:install vue --webpack
+
+# Vue + Vite
+$ symfony console inertia:install vue --vite
 ```
 
-### Step 3: Routes Configurations
+### Step 4: Routes Configurations
 
 Add the following route configuration if it's missing:
 
@@ -79,22 +85,6 @@ controllers:
 +               - 'DELETE'
 ```
 
-### Step 4: Choose your stack
-
-```shell
-# React without SSR support
-$ symfony console inertia:install react
-
-# React with SSR support
-$ symfony console inertia:install react --ssr
-
-# Vue without SSR support
-$ symfony console inertia:install vue
-
-# Vue with SSR support
-$ symfony console inertia:install vue --ssr
-```
-
 ### Step 5: Install packages and compile assets
 
 ```shell
@@ -107,15 +97,13 @@ $ npm run dev-server
 # Start coding into assets/js/pages/ 🎉
 ```
 
-### Start/Stop the SSR Server
+### Production
 
 ```shell
 # First you need to build both client and server bundles
 $ npm run build
 
-# To start the SSR Server
+# Start/Stop the SSR Server
 $ symfony console inertia:start-ssr
-
-# To stop the SSR Server
 $ symfony console inertia:stop-ssr
 ```
