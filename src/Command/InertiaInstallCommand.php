@@ -146,7 +146,7 @@ final class InertiaInstallCommand extends Command
             $this->installInertiaReactSsrStack();
         }
 
-        $this->io->info('Installing and building Node dependencies.');
+        $this->io->info('Installing and building Node dependenciesx.');
 
         if ($this->filesystem->exists(Path::makeAbsolute('pnpm-lock.yaml', $this->basePath))) {
             $this->runCommands(['pnpm install', 'pnpm run dev']);
@@ -265,7 +265,7 @@ final class InertiaInstallCommand extends Command
     {
         $process = Process::fromShellCommandline(implode(' && ', $commands));
         $process->setTimeout(null);
-        $process->setTty(Process::isTtySupported());
+        // $process->setTty(Process::isTtySupported());
 
         $process->run(function ($type, $line) {
             $this->output->write('    '.$line);
