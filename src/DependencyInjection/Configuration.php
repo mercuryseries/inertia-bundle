@@ -46,7 +46,7 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->scalarNode('domain')
                             ->info('The domain that the cookie is available to. If not set, the cookie is available to the current domain.')
-                            ->defaultValue('127.0.0.1')
+                            ->defaultNull()
                         ->end()
                         ->booleanNode('secure')
                             ->info('Indicates whether the cookie should only be transmitted over HTTPS. Defaults to true.')
