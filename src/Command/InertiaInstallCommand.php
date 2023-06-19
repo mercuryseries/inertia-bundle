@@ -48,7 +48,7 @@ final class InertiaInstallCommand extends Command
 
         $this->io = new SymfonyStyle($this->input, $this->output);
 
-        $bundler = $this->input->getArgument('bundler');
+        $bundler = $this->input->getOption('bundler');
 
         if (!in_array($bundler, ['webpack', 'vite'])) {
             $this->io->error('Invalid bundler. Supported bundlers are [webpack] and [vite].');
