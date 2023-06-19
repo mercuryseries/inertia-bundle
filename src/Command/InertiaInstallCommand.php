@@ -35,6 +35,7 @@ final class InertiaInstallCommand extends Command
             ->setName('inertia:install')
             ->setDescription('Install the Inertia resources')
             ->addArgument('stack', InputArgument::OPTIONAL, 'The development stack that should be installed (react or vue)')
+            ->addArgument('bundler', InputArgument::OPTIONAL, 'The bundler that should be used (webpack or vite)', 'webpack')
             ->addOption('ssr', null, InputOption::VALUE_NONE, 'Indicates if Inertia SSR support should be installed')
             ->addOption('composer', null, InputOption::VALUE_REQUIRED, 'Absolute path to the Composer binary which should be used to install packages', 'global')
         ;
@@ -47,12 +48,20 @@ final class InertiaInstallCommand extends Command
 
         $this->io = new SymfonyStyle($this->input, $this->output);
 
+        $bundler = $this->input->getArgument('bundler');
+
+        if (!in_array($bundler, ['webpack', 'vite'])) {
+            $this->io->error('Invalid bundler. Supported bundlers are [webpack] and [vite].');
+
+            return Command::INVALID;
+        }
+
         $stack = $this->input->getArgument('stack');
 
         if ('react' === $stack) {
-            return $this->installInertiaReactStack();
+            return $this->installInertiaReactStack($bundler);
         } elseif ('vue' === $stack) {
-            return $this->installInertiaVueStack();
+            return $this->installInertiaVueStack($bundler);
         }
 
         $this->io->error('Invalid stack. Supported stacks are [react] and [vue].');
@@ -63,7 +72,7 @@ final class InertiaInstallCommand extends Command
     /**
      * Install the Inertia React stack.
      */
-    protected function installInertiaReactStack(): int
+    protected function installInertiaReactStack(string $bundler): int
     {
         // Install Inertia...
         if (!$this->requireComposerPackages([
@@ -188,7 +197,7 @@ final class InertiaInstallCommand extends Command
         );
 
         if ($this->input->getOption('ssr')) {
-            $this->installInertiaReactSsrStack();
+            $this->installInertiaReactSsrStack($bundler);
         }
 
         $this->io->info('Installing Node dependencies.');
@@ -209,7 +218,7 @@ final class InertiaInstallCommand extends Command
     /**
      * Install the Inertia Vue stack.
      */
-    protected function installInertiaVueStack(): int
+    protected function installInertiaVueStack(string $bundler): int
     {
         throw new \RuntimeException('Not implemented yet!');
     }
@@ -217,7 +226,7 @@ final class InertiaInstallCommand extends Command
     /**
      * Install the Inertia React SSR stack into the application.
      */
-    protected function installInertiaReactSsrStack(): void
+    protected function installInertiaReactSsrStack(string $bundler): void
     {
         $this->filesystem->copy(
             __DIR__.'/../../stubs/webpack.ssr.config.js',

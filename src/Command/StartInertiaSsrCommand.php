@@ -17,7 +17,7 @@ final class StartInertiaSsrCommand extends Command
     private $ssrEnabled;
     private $configuredBundle;
 
-    public function __construct(BundleDetector $bundleDetector, bool $ssrEnabled, ?string $configuredBundle = null)
+    public function __construct(BundleDetector $bundleDetector, bool $ssrEnabled, string $configuredBundle = null)
     {
         parent::__construct();
         $this->bundleDetector = $bundleDetector;

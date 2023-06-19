@@ -11,7 +11,7 @@ final class BundleDetector
     private $basePath;
     private $configuredBundle;
 
-    public function __construct(Filesystem $filesystem, string $basePath, ?string $configuredBundle = null)
+    public function __construct(Filesystem $filesystem, string $basePath, string $configuredBundle = null)
     {
         $this->filesystem = $filesystem;
         $this->basePath = $basePath;

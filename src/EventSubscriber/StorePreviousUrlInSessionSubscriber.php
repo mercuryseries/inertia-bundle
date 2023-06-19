@@ -23,9 +23,9 @@ class StorePreviousUrlInSessionSubscriber implements EventSubscriberInterface
         $request = $event->getRequest();
 
         if (
-            $request->isMethod('GET') &&
-            !$request->isXmlHttpRequest() &&
-            !$this->isNotPrefetch($request)
+            $request->isMethod('GET')
+            && !$request->isXmlHttpRequest()
+            && !$this->isNotPrefetch($request)
         ) {
             $request->getSession()->set(
                 $this->previousUrlSessionKey,
@@ -39,8 +39,8 @@ class StorePreviousUrlInSessionSubscriber implements EventSubscriberInterface
      */
     private function isNotPrefetch(Request $request): bool
     {
-        return 0 === strcasecmp($request->server->get('HTTP_X_MOZ') ?? '', 'prefetch') ||
-               0 === strcasecmp($request->headers->get('Purpose') ?? '', 'prefetch');
+        return 0 === strcasecmp($request->server->get('HTTP_X_MOZ') ?? '', 'prefetch')
+               || 0 === strcasecmp($request->headers->get('Purpose') ?? '', 'prefetch');
     }
 
     public static function getSubscribedEvents(): array
