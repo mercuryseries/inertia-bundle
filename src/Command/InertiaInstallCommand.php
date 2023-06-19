@@ -35,7 +35,7 @@ final class InertiaInstallCommand extends Command
             ->setName('inertia:install')
             ->setDescription('Install the Inertia resources')
             ->addArgument('stack', InputArgument::OPTIONAL, 'The development stack that should be installed (react or vue)')
-            ->addArgument('bundler', InputArgument::OPTIONAL, 'The bundler that should be used (webpack or vite)', 'webpack')
+            ->addOption('bundler', null, InputOption::VALUE_REQUIRED, 'The bundler that should be used (webpack or vite)', 'webpack')
             ->addOption('ssr', null, InputOption::VALUE_NONE, 'Indicates if Inertia SSR support should be installed')
             ->addOption('composer', null, InputOption::VALUE_REQUIRED, 'Absolute path to the Composer binary which should be used to install packages', 'global')
         ;
