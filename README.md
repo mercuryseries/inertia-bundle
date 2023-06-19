@@ -47,16 +47,16 @@ Add `--ssr` to any of the following options to add [Server-side Rendering (SSR)]
 
 ```shell
 # React + Webpack Encore
-$ symfony console inertia:install react --webpack
+$ symfony console inertia:install react --bundler=webpack
 
 # React + Vite
-$ symfony console inertia:install react --vite
+$ symfony console inertia:install react --bundler=vite
 
 # Vue + Webpack Encore
-$ symfony console inertia:install vue --webpack
+$ symfony console inertia:install vue --bundler=webpack
 
 # Vue + Vite
-$ symfony console inertia:install vue --vite
+$ symfony console inertia:install vue --bundler=vite
 ```
 
 ### Step 4: Routes Configurations
